@@ -1,0 +1,154 @@
+:root{--bg:#0f172a;--card:#1e293b;--border:#334155;--accent:#38bdf8;--text:#f8fafc;--muted:#94a3b8;--success:#22c55e;--danger:#ef4444;--warning:#f59e0b}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,sans-serif;line-height:1.5}.container{max-width:1400px;margin:auto;padding:20px;display:grid;grid-template-columns:320px 1fr;gap:20px}.topbar{grid-column:1/-1;background:linear-gradient(135deg,#0f172a,#1e293b);border:1px solid var(--border);border-radius:14px;padding:20px;display:flex;justify-content:space-between;align-items:center}.topbar h1{margin:0;color:var(--accent)}.muted{color:var(--muted)}.panel{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:20px}.panel h2{font-size:1.15rem;color:var(--accent);border-bottom:1px solid var(--border);padding-bottom:8px}.scenario-btn,.btn-action{width:100%;text-align:left;background:#0f172a;color:var(--text);border:1px solid var(--border);border-radius:7px;padding:12px;margin:5px 0;cursor:pointer}.scenario-btn:hover,.scenario-btn.active,.btn-action:hover{border-color:var(--accent);background:#172554}.btn{background:var(--accent);color:#06111a;font-weight:700;border:0;border-radius:7px;padding:11px 16px;cursor:pointer}.btn.secondary{background:#334155;color:#fff}.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:10px}.metric{background:#0f172a;border:1px solid var(--border);padding:10px;border-radius:7px}.console{background:#000;color:#4ade80;border:1px solid var(--border);border-radius:7px;padding:15px;white-space:pre-wrap;min-height:110px;margin:15px 0}.case-head{display:flex;justify-content:space-between;gap:15px;align-items:center;background:#111827;border:1px solid var(--border);border-radius:10px;padding:14px}.badge{display:inline-block;padding:5px 10px;border-radius:20px;border:1px solid}.unresolved{color:var(--danger);border-color:var(--danger)}.resolved{color:var(--success);border-color:var(--success)}.pc-wrapper{position:relative;max-width:520px;margin:18px auto}.pc-wrapper img{width:100%;border-radius:10px;border:2px solid var(--border)}.hotspot{position:absolute;transform:translate(-50%,-50%);background:#0f172ae8;border:2px solid var(--accent);padding:5px 9px;border-radius:999px;font-weight:700;font-size:.75rem}.hotspot.fault{border-color:var(--danger);background:#7f1d1d;box-shadow:0 0 20px #ef4444}.hotspot.resolved{border-color:var(--success);background:#14532d;box-shadow:0 0 20px #22c55e}.achievements{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.achievement{background:#111827;border:1px solid var(--border);border-radius:9px;padding:12px;text-align:center;opacity:.55}.achievement.unlocked{opacity:1;border-color:#fbbf24}.leaderboard{width:100%;border-collapse:collapse}.leaderboard td,.leaderboard th{padding:8px;border-bottom:1px solid var(--border);text-align:left}.auth-body{min-height:100vh;display:grid;place-items:center;padding:20px}.auth-card{width:min(420px,100%);background:var(--card);border:1px solid var(--border);padding:28px;border-radius:14px}.auth-card h1{color:var(--accent)}.auth-card label{display:block;margin-top:12px;color:var(--muted)}.auth-card input{width:100%;padding:11px;margin-top:5px;background:#0f172a;border:1px solid var(--border);border-radius:7px;color:#fff}.auth-card .btn{width:100%;margin-top:18px}.auth-card a{color:var(--accent)}.alert{padding:10px;border-radius:6px}.error{background:#7f1d1d}.progress{height:10px;background:#334155;border-radius:20px;overflow:hidden}.progress>div{height:100%;background:var(--accent)}@media(max-width:850px){.container{grid-template-columns:1fr}.topbar{grid-column:1}.grid-2{grid-template-columns:1fr}.achievements{grid-template-columns:1fr}}
+/* Scenario cards */
+#scenario-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#scenario-list .scenario-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 76px;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 12px;
+  text-align: left;
+  font-family: inherit;
+  color: #f1f5f9;
+  background: linear-gradient(135deg, #081724, #030b13);
+  border: 1px solid #1b3447;
+  border-radius: 9px;
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s,
+              background 0.2s;
+}
+
+#scenario-list .scenario-btn:hover {
+  border-color: #3988be;
+  background: #0a1d31;
+}
+
+#scenario-list .scenario-btn.active {
+  border-color: #258cff;
+  background: linear-gradient(135deg, #09254b, #031125);
+  box-shadow:
+    0 0 12px rgba(37, 140, 255, 0.35),
+    inset 0 0 12px rgba(37, 140, 255, 0.12);
+}
+
+#scenario-list .scenario-btn:focus-visible {
+  outline: 2px solid #67d5ff;
+  outline-offset: 3px;
+}
+
+#scenario-list .scenario-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 42px;
+  width: 42px;
+  height: 46px;
+  color: var(--scenario-accent);
+  background: rgba(255, 255, 255, 0.025);
+  border-radius: 10px;
+}
+
+#scenario-list .scenario-icon svg {
+  display: block;
+  width: 34px;
+  height: 34px;
+  filter: drop-shadow(0 0 5px currentColor);
+}
+
+#scenario-list .scenario-copy {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+#scenario-list .scenario-label {
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+#scenario-list .scenario-summary {
+  color: #dce6f2;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.5;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+#scenario-list .scenario-check {
+  flex-shrink: 0;
+  color: #34d399;
+  font-size: 17px;
+  font-weight: 700;
+} #scenario-list .scenario-icon {
+  flex: 0 0 30px;
+  width: 30px;
+  height: 34px;
+}
+
+#scenario-list .scenario-icon svg {
+  width: 24px;
+  height: 24px;
+}#scenario-list .scenario-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 70px;
+  height: auto;
+  padding: 12px;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+#scenario-list .scenario-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 32px;
+  width: 32px;
+  height: 32px;
+  color: var(--scenario-accent);
+}
+
+#scenario-list .scenario-icon svg {
+  display: block;
+  width: 28px;
+  height: 28px;
+  max-width: 28px;
+}
+
+#scenario-list .scenario-copy {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+#scenario-list .scenario-label {
+  font-size: 13px;
+  font-weight: bold;
+}
+
+#scenario-list .scenario-summary {
+  font-size: 12px;
+  line-height: 1.4;
+  white-space: normal;
+}
+
+#scenario-list .scenario-check {
+  color: #34d399;
+  font-size: 14px;
+}
